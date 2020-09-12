@@ -1,0 +1,180 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC0NjHnNTm0454Yuv945LdcLmt-38AGBuk",
+    authDomain: "papergalaxy-167b0.firebaseapp.com",
+    databaseURL: "https://papergalaxy-167b0.firebaseio.com",
+    storageBucket: "papergalaxy-167b0.appspot.com",
+    messagingSenderId: "315993692413"
+  };
+  firebase.initializeApp(config);
+  </script>
+</head>
+
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">PAPERGALAXY</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="help.html">Help</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <h3 align="center">Scoreboard</h3>
+      <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>Hyunsung</div>
+          <div class="collapsible-body">
+            <p>score: 56750</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">place</i>Hoon</div>
+          <div class="collapsible-body">
+            <p>score: 45020</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Trump</div>
+          <div class="collapsible-body">
+            <p>score: 20700</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">voicemail</i>Florida</div>
+          <div class="collapsible-body">
+            <p>score: 8230</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">replay</i>Mao</div>
+          <div class="collapsible-body">
+            <p>score: 7699</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">web</i>Flodit</div>
+          <div class="collapsible-body">
+            <p>score: 5341</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">question_answer</i>Sunsil</div>
+          <div class="collapsible-body">
+            <p>score: 3564</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">view_module</i>Hillary</div>
+          <div class="collapsible-body">
+            <p>score: 856</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">trending_flat</i>Bill</div>
+          <div class="collapsible-body">
+            <p>score: 854</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">mode_edit</i>Brexit</div>
+          <div class="collapsible-body">
+            <p>score: 452</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="input-field col s6">
+      <h3 align="center">Popular Scholars</h3>
+      <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>Juho</div>
+          <div class="collapsible-body">
+            <p>labes: 4653</p>
+            <p>Juho Kim is an Assistant Professor in the School of Computing at KAIST, and directs KIXLAB (the KAIST Interaction
+              Lab)</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">place</i>Ada</div>
+          <div class="collapsible-body">
+            <p>labes: 4162</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Dijkstra</div>
+          <div class="collapsible-body">
+            <p>labels: 3974</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">voicemail</i>Turing</div>
+          <div class="collapsible-body">
+            <p>labes: 3674</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">replay</i>Hwang</div>
+          <div class="collapsible-body">
+            <p>labes: 3429</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">web</i>Hoon</div>
+          <div class="collapsible-body">
+            <p>labes: 3017</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">question_answer</i>Zzang</div>
+          <div class="collapsible-body">
+            <p>labes: 2787</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">view_module</i>Von</div>
+          <div class="collapsible-body">
+            <p>labes: 2593</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">trending_flat</i>Jolly</div>
+          <div class="collapsible-body">
+            <p>labes: 2102</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">mode_edit</i>Fitts</div>
+          <div class="collapsible-body">
+            <p>labes: 1408</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script>
+   $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+  </script>
+</body>
+
+</html>

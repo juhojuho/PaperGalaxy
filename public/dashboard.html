@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Slabo+27px" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC0NjHnNTm0454Yuv945LdcLmt-38AGBuk",
+      authDomain: "papergalaxy-167b0.firebaseapp.com",
+      databaseURL: "https://papergalaxy-167b0.firebaseio.com",
+      storageBucket: "papergalaxy-167b0.appspot.com",
+      messagingSenderId: "315993692413"
+    };
+    firebase.initializeApp(config);
+    </script>
+  <link rel="stylesheet" href="result.css">
+</head>
+
+<body>
+  <nav class="db dt-l w-100 border-box pa3 ph5-l">
+    <a class="db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb2 mb0-l" href="index.html" title="Home">
+      <p>PAPERGALAXY</p>
+    </a>
+    <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+      <div class="link dim dark-gray f6 f5-l mr3 mr4-l dn" id="user-name"></div>
+      <form id="search-form" class="f6 f5-l dib mr3 mr4-l" onsubmit="showResults()">
+        <input type="text" id="search-box" list="paper-list" placeholder="Search for papers...">
+        <img src="search_icon.png" id="search-button" class="dib w2 br-100">
+        <!--<input type="button" id="search-button" value="SEARCH" onclick="showResults()">-->
+      </form>
+      <datalist id="paper-list"></datalist>
+      <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="index.html" title="Home">Home</a>
+      <a id="sign-in" class="link dim dark-gray f6 f5-l dib mr3 mr4-l" title="Login">Login</a>
+      <a id="sign-out" class="link dim dark-gray f6 f5-l mr3 mr4-l dn" title="Logout">Logout</a>
+      <a id="toDashboard" class="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="dashboard.html" title="Dashboard">Dashboard</a>
+      <a class="link dim dark-gray f6 f5-l dib" title="Press">Help</a>
+    </div>
+  </nav>
+  <div class="dt dt--fixed">
+    <div class="dt-row">
+      <div class="dtc tc pv4 white bg-black">
+        #
+      </div>
+      <div class="dtc tc pv4 white bg-black"></div>
+      <div class="dtc tc pv4 white bg-black">
+        Username
+      </div>
+      <div class="dtc tc pv4 white bg-black"></div>
+      <div class="dtc tc pv4 white bg-black">
+        Points
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 white bg-black-90">
+        1
+      </div>
+      <div class="dtc tc pv4 white bg-black-90"></div>
+      <div class="dtc tc pv4 white bg-black-90">
+        User One
+      </div>
+      <div class="dtc tc pv4 white bg-black-90"></div>
+      <div class="dtc tc pv4 white bg-black-90">
+        12345 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 white bg-black-80">
+        2
+      </div>
+      <div class="dtc tc pv4 white bg-black-80"></div>
+      <div class="dtc tc pv4 white bg-black-80">
+        User Two
+      </div>
+      <div class="dtc tc pv4 white bg-black-80"></div>
+      <div class="dtc tc pv4 white bg-black-80">
+        12340 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 white bg-black-70">
+        3
+      </div>
+      <div class="dtc tc pv4 white bg-black-70"></div>
+      <div class="dtc tc pv4 white bg-black-70">
+        User Three
+      </div>
+      <div class="dtc tc pv4 white bg-black-70"></div>
+      <div class="dtc tc pv4 white bg-black-70">
+        11239 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 white bg-black-60">
+        4
+      </div>
+      <div class="dtc tc pv4 white bg-black-60"></div>
+      <div class="dtc tc pv4 white bg-black-60">
+        User Four
+      </div>
+      <div class="dtc tc pv4 white bg-black-60"></div>
+      <div class="dtc tc pv4 white bg-black-60">
+        11110 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 white bg-black-50">
+        5
+      </div>
+      <div class="dtc tc pv4 white bg-black-50"></div>
+      <div class="dtc tc pv4 white bg-black-50">
+        User Five
+      </div>
+      <div class="dtc tc pv4 white bg-black-50"></div>
+      <div class="dtc tc pv4 white bg-black-50">
+        10002 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 black bg-black-40">
+        6
+      </div>
+      <div class="dtc tc pv4 black bg-black-40"></div>
+      <div class="dtc tc pv4 black bg-black-40">
+        User Six
+      </div>
+      <div class="dtc tc pv4 black bg-black-40"></div>
+      <div class="dtc tc pv4 black bg-black-40">
+        9987 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 black bg-black-30">
+        7
+      </div>
+      <div class="dtc tc pv4 black bg-black-30"></div>
+      <div class="dtc tc pv4 black bg-black-30">
+        User Seven
+      </div>
+      <div class="dtc tc pv4 black bg-black-30"></div>
+      <div class="dtc tc pv4 black bg-black-30">
+        9534 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 black bg-black-20">
+        8
+      </div>
+      <div class="dtc tc pv4 black bg-black-20"></div>
+      <div class="dtc tc pv4 black bg-black-20">
+        User Eight
+      </div>
+      <div class="dtc tc pv4 black bg-black-20"></div>
+      <div class="dtc tc pv4 black bg-black-20">
+        8829 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 black bg-black-10">
+        9
+      </div>
+      <div class="dtc tc pv4 black bg-black-10"></div>
+      <div class="dtc tc pv4 black bg-black-10">
+        User Nine
+      </div>
+      <div class="dtc tc pv4 black bg-black-10"></div>
+      <div class="dtc tc pv4 black bg-black-10">
+        7721 pts
+      </div>
+    </div>
+    <div class="dt-row">
+      <div class="dtc tc pv4 black bg-black-05">
+        10
+      </div>
+      <div class="dtc tc pv4 black bg-black-05"></div>
+      <div class="dtc tc pv4 black bg-black-05">
+        User Ten
+      </div>
+      <div class="dtc tc pv4 black bg-black-05"></div>
+      <div class="dtc tc pv4 black bg-black-05">
+        6361 pts
+      </div>
+    </div>
+  </div>
+
+  <script src="firebase.js"></script>
+  <script src="search.js"></script>
+</body>

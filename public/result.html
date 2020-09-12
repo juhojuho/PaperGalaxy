@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Slabo+27px" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  <script>
+    // Google Analytics
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-88863200-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC0NjHnNTm0454Yuv945LdcLmt-38AGBuk",
+      authDomain: "papergalaxy-167b0.firebaseapp.com",
+      databaseURL: "https://papergalaxy-167b0.firebaseio.com",
+      storageBucket: "papergalaxy-167b0.appspot.com",
+      messagingSenderId: "315993692413"
+    };
+    firebase.initializeApp(config);
+    </script>
+  <link rel="stylesheet" href="result.css">
+</head>
+
+<body>
+  <nav class="db dt-l w-100 border-box pa3 ph5-l">
+    <a class="db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb2 mb0-l" href="index.html" title="Home">
+      <p>PAPERGALAXY</p>
+    </a>
+    <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+      <div class="link dim dark-gray f6 f5-l mr3 mr4-l dn" id="user-name"></div>
+      <form id="search-form" class="f6 f5-l dib mr3 mr4-l" onsubmit="showResults()">
+        <input type="text" id="search-box" list="paper-list" placeholder="Search for papers...">
+        <img src="search_icon.png" id="search-button" class="dib w2 br-100">
+        <!--<input type="button" id="search-button" value="SEARCH" onclick="showResults()">-->
+      </form>
+      <datalist id="paper-list"></datalist>
+      <a class="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="index.html" title="Home">Home</a>
+      <a id="sign-in" class="link dim dark-gray f6 f5-l dib mr3 mr4-l" title="Login">Login</a>
+      <a id="sign-out" class="link dim dark-gray f6 f5-l mr3 mr4-l dn" title="Logout">Logout</a>
+      <a class="link dim dark-gray f6 f5-l dib" href="help.html" title="Press">Help</a>
+    </div>
+  </nav>
+  <div id="graph"></div>
+
+  <table id="leaderboard" class="collapse ba br2 b--navy pv2 ph3">
+    <tbody id="score-board" class="tc">
+      <tr class="white bg-navy">
+        <th class="pv2 ph3 tl f6 fw6 ttu">#</th>
+        <th class="tr f6 ttu fw6 pv2 ph3">Username</th>
+        <th class="tr f6 ttu fw6 pv2 ph3">Points</th>
+      </tr>
+      <tr id="first" lass="navy bg-white">
+        <td class="pv2 ph3">1</td>
+        <td class="pv2 ph3" id="1stName"></td>
+        <td class="pv2 ph3" id="1stScore"></td>
+      </tr>
+      <tr id="second" class="navy bg-white">
+        <td class="pv2 ph3">2</td>
+        <td class="pv2 ph3" id="2ndName"></td>
+        <td class="pv2 ph3" id="2ndScore"></td>
+      </tr>
+      <tr id="third" class="navy bg-white">
+        <td class="pv2 ph3">3</td>
+        <td class="pv2 ph3 tc" id="3rdName"></td>
+        <td class="pv2 ph3" id="3rdScore"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="modal-add-paper" class="modal dn">
+    <div class="modal-content">
+      <h4>Add a new paper</h4>
+      <h5>Title</h5>
+      <div class="cf">
+        <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="type"
+          type="text" name="Email_Adress" value="" id="paper-title">
+      </div>
+      <h5>Author</h5>
+      <div class="cf">
+        <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="type"
+          type="text" value="" id="paper-author">
+      </div>
+      <a id="sendNewPaper" class="f6 link dim ba ph3 pv2 mb2 dib navy">ADD</a>
+    </div>
+  </div>
+  <div id="modal-add-connection" class="modal dn">
+    <div class="modal-content">
+      <h4>Create a new edge</h4>
+      <h5>Paper1</h5>
+      <select id="paper1">
+          <option value="0" disabled selected>Choose first paper</option>
+          </select>
+      <h5>Paper2</h5>
+      <select id="paper2">
+          <option value="0" disabled selected>Choose second paper</option>
+          </select>
+      <h5>Relationship</h5>
+      <select id="relationship">
+          <option value="0" disabled selected>Choose relationship</option>
+          <option value="1">Similar motivation</option>
+          <option value="2">Similar technique</option>
+          <option value="3">Similar workflow</option>
+          </select>
+      <h5>Description</h5>
+      <div class="cf">
+        <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="type"
+          type="text" value="" id="connection-description">
+      </div>
+      <a id="sendNewConnection" class="f6 link dim ba ph3 pv2 mb2 dib navy">ADD</a>
+    </div>
+  </div>
+  <div id="modal-show-paper" class="modal dn">
+    <div id="modal-show-paper-content" class="modal-content">
+      <h4>Paper Information</h4>
+      <h5 id="paperInfoTitle">Title</h5>
+      <h5 id="paperInfoAuthor">Author</h5>
+      <a id="closeModalPaper" class="f6 link dim ba ph3 pv2 mb2 dib navy">CLOSE</a>
+    </div>
+  </div>
+  <div id="modal-show-connection" class="modal dn">
+    <div id="tableConnection" class="modal-content">
+    </div>
+  </div>
+  <a class="f6 link dim ba ph3 pv2 mb2 dib navy" id="fixed-button">ADD</a>
+  <div class="dn" id="buttons">
+    <a class="f6 link dim ba ph3 pv2 mb2 dib navy" id="fixed-button-top">NEW PAPER</a>
+    <a class="f6 link dim ba ph3 pv2 mb2 dib navy" id="fixed-button-bottom">NEW CONNECTION</a>
+  </div>
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="search.js"></script>
+  <script src="graph.js"></script>
+  <script src="firebase.js"></script>
+  <script src="result.js"></script>
+</body>
+
+</html>

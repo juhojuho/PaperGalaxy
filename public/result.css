@@ -1,0 +1,74 @@
+#search-box {
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+#search-button {
+  vertical-align: middle;
+}
+
+#leaderboard {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  margin-right: 40px;
+  margin-top: 90px;
+}
+
+#fixed-button {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+
+#fixed-button-top {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  margin-right: 40px;
+  margin-bottom: 110px;
+  z-index: 900;
+}
+
+#fixed-button-bottom {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  margin-right: 40px;
+  margin-bottom: 150px;
+  z-index: 900;
+}
+
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1000;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}

@@ -1,0 +1,49 @@
+body {
+  font-family: 'Avenir', sans-serif;
+}
+
+#title {
+  font-family: 'Slabo 27px', serif;
+  margin-top: 20px;
+  color: #001b44;
+}
+
+#search-box {
+  width: 400px;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+}
+
+#search-button {
+  background-color: #001b44;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#graph-index {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.svg {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.dim {
+  opacity: 1;
+}
+
+.dim:hover{
+  opacity: 0.8;
+  stroke-opacity: 0.5;
+}
